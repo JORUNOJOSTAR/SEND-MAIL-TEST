@@ -1,18 +1,6 @@
 const nodeMailer = require('nodemailer');
 const { google } = require('googleapis');
 
-const now = new Date();
-const options = {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-    weekday: 'short',
-    hour:'numeric',
-    minute: 'numeric',
-    second: 'numeric',
-};
-const formattedDateTime = now.toLocaleDateString('ja-JP',options);
-
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const REDIRECT_URL = 'https://developers.google.com/oauthplayground';
@@ -22,10 +10,10 @@ const EMAIL = process.env.EMAIL
 const mailOptions = {
     from: EMAIL,
     to: EMAIL,
-    subject: `Test Email ${formattedDateTime}`,
-    text: `This is a test email sent on ${formattedDateTime}`,
+    subject: `Test Email`,
+    text: `This is a test email sent from github actions`,
     html: `
-    <h2>This mail is sent on ${formattedDateTime}</h2>
+    <h2>This mail is sent by JOE</h2>
     <p>どんだけーーーーーーーーーーーー</p>
     <img src="https://static1.cbrimages.com/wordpress/wp-content/uploads/2019/12/Gintama-Meme-Feature.jpg">
     `
